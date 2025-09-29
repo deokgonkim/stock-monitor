@@ -1,0 +1,14 @@
+{
+  "name": "stock-monitor",
+  "version": "1.0.0",
+  "description": "This project will monitor my stock prices and update notion pages accordingly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.40.0"
+  }
+}
