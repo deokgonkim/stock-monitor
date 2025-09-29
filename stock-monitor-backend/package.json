@@ -17,10 +17,12 @@
     "serverless-plugin-typescript": "^2.1.5",
     "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "undici": "^7.16.0"
   },
   "dependencies": {
     "@notionhq/client": "^5.1.0",
+    "@slack/web-api": "^7.10.0",
     "axios": "^1.12.2",
     "yahoo-finance2": "^3.10.0"
   }

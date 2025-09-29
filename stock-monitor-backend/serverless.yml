@@ -38,8 +38,10 @@ provider:
   timeout: 25 # optional, in seconds, default is 6
   environment:
     STAGE: ${opt:stage, 'dev'}
+    TZ: Asia/Seoul
     NOTION_TOKEN: ${env:NOTION_TOKEN}
     NOTION_DATASOURCE_ID: ${env:NOTION_DATASOURCE_ID}
+    SLACK_TOKEN: ${env:SLACK_TOKEN}
 
 functions:
   # rateHandler:
@@ -56,4 +58,10 @@ functions:
   handler:
     handler: src/handler.run
     events:
-      - schedule: cron(0 * ? * MON-FRI *)
+      # pre market (09:00 ~ 14:29 UTC)
+      - schedule: cron(0 9-14 ? * MON-FRI *)
+      # regular market (14:30 ~ 21:00 UTC)
+      - schedule: cron(0 15-20 ? * MON-FRI *)
+      # after market (21:00 ~ 01:00 UTC)
+      - schedule: cron(0 21-23 ? * MON-FRI *)
+      - schedule: cron(0 0 ? * TUE-SAT *)
