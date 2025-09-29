@@ -16,6 +16,6 @@ describe('Yahoo finance test', () => {
     const quote = await getStockPrice(ticker);
     console.log(quote);
     expect(quote).toBeDefined();
-    saveJson(quote, './__tests__/output/yf-quote.json');
+    saveJson(quote, './output/yf-quote.json');
   });
 });

@@ -38,6 +38,8 @@ provider:
   timeout: 25 # optional, in seconds, default is 6
   environment:
     STAGE: ${opt:stage, 'dev'}
+    NOTION_TOKEN: ${env:NOTION_TOKEN}
+    NOTION_DATASOURCE_ID: ${env:NOTION_DATASOURCE_ID}
 
 functions:
   # rateHandler:
