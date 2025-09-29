@@ -40,6 +40,7 @@ provider:
     STAGE: ${opt:stage, 'dev'}
     TZ: Asia/Seoul
     NOTION_TOKEN: ${env:NOTION_TOKEN}
+    NOTION_PAGE_ID: ${env:NOTION_PAGE_ID}
     NOTION_DATASOURCE_ID: ${env:NOTION_DATASOURCE_ID}
     SLACK_TOKEN: ${env:SLACK_TOKEN}
 

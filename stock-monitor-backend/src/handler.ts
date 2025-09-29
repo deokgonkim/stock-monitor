@@ -3,6 +3,7 @@ import { getAllStockRecords, updateCurrentPrice, updateUpdated } from "./notionS
 import { sendSlackMessage } from "./slack";
 
 const channel = process.env.SLACK_CHANNEL || '#general';
+const pageId = process.env.NOTION_PAGE_ID || '';
 
 function alertMessage(params: {
   ticker: string
@@ -43,7 +44,8 @@ const updateStockPrices = async () => {
       console.warn(`No pageId found for ticker ${ticker}, cannot update Notion record.`);
     }
   });
-  await sendSlackMessage(channel, `Stock prices updated at ${new Date().toLocaleString()}`);
+  await sendSlackMessage(channel, `Stock prices updated at ${new Date().toLocaleString()}
+  - <https://www.notion.so/${pageId.replace(/-/g, '')}|View in Notion>`);
 }
 
 export const run = async (event: any = {}): Promise<any> => {
