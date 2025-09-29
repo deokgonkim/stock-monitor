@@ -4,13 +4,23 @@
   "description": "Example of creating a function that runs as a cron job using the serverless `schedule` event",
   "author": "",
   "license": "MIT",
+  "type": "commonjs",
   "scripts": {
-    "deploy-dev": "sls deploy --stage dev"
+    "deploy-dev": "sls deploy --stage dev",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.5.2",
     "dotenv": "^17.2.2",
+    "jest": "^30.2.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "yahoo-finance2": "^3.10.0"
   }
 }

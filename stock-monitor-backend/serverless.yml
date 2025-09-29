@@ -2,9 +2,12 @@ service: stock-monitor-backend
 frameworkVersion: '3'
 useDotenv: true
 
+plugins:
+  - serverless-plugin-typescript
+
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs22.x
   region: ${env:AWS_REGION}
   # The S3 prefix under which deployed artifacts are stored (default: serverless)
   # deploymentPrefix: serverless
@@ -42,8 +45,13 @@ functions:
   #   events:
   #     # Invoke Lambda function every minute
   #     - schedule: rate(1 minute)
-  cronHandler:
-    handler: index.run
+  # cronHandler:
+  #   handler: index.run
+  #   events:
+  #     # Invoke Lambda function every 2nd minute from Mon-Fri
+  #     - schedule: cron(0/2 * ? * MON-FRI *)
+
+  handler:
+    handler: src/handler.run
     events:
-      # Invoke Lambda function every 2nd minute from Mon-Fri
-      - schedule: cron(0/2 * ? * MON-FRI *)
+      - schedule: cron(0 * ? * MON-FRI *)
