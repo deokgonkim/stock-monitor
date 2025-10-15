@@ -43,6 +43,7 @@ provider:
     NOTION_PAGE_ID: ${env:NOTION_PAGE_ID}
     NOTION_DATASOURCE_ID: ${env:NOTION_DATASOURCE_ID}
     SLACK_TOKEN: ${env:SLACK_TOKEN}
+    SLACK_CHANNEL: ${env:SLACK_CHANNEL}
 
 functions:
   # rateHandler:
